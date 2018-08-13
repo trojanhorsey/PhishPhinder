@@ -1,7 +1,9 @@
 ﻿###SET YOUR ENVIRONMENT VARIABLES HERE###
 $global:smtpServer = "smtp.yourorg.com"
 $global:fromAddress = "threat@yourorg.com"
+$global:irAddress = "infosec@yourorg.com"
 $global:proxyPath = "\\server01\folder\blockList.xml"
+
 
 $compressedData = [System.Convert]::FromBase64String("H4sIAAAAAAAEAM1XbYvcNhD+frD/QWQP7IWVxDXJl6VX8qlQODgI5aBEqZxe0lJYYnrdC4XMj++8yZZkebmmlFTelS1pnnlmRtJY3lxsLi6P42+juTavnm2wZdaKxxJCWJfwKrEu4n2MeItxXcaC6UcTzLgzYFeE4D1gfR8DPf8Cq6
 pC34cYo9/tvF2xCIfXHQqG4ca3hwHI4TMRIzThV+Dm8fHxDBqyelF8MPEcNY7vqGqOGXNnWlGLUhAWUMgHbVdY/DXAs5fB34WsVdhE8Lvl3OchgjF3eYIj+I6jMS7gRYChjFiYRALR++12Wxtfzk9JrwpIxI/ewJbw35UKqvmFesqC
@@ -359,7 +361,7 @@ function Inv-Summary
     $body += "The URL <b><font color=blue>`"$global:phishdomain`"</b></font> was identified from the campaign and the result of the Ironport block attempt was as follows: <b><font color=blue>`"$global:message`"</b></font><br><br><br>"
     $body += "----------------------------------------------------------------------END OF REPORT----------------------------------------------------------------------<br><br><br>"
     Sleep 1
-    send-MailMessage -SmtpServer $global:smtpServer -To InfosecDL@yourorg.com -From $global:fromAddress -Subject $subject -Body $body -BodyAsHtml -Priority high
+    send-MailMessage -SmtpServer $global:smtpServer -To $global:irAddress -From $global:fromAddress -Subject $subject -Body $body -BodyAsHtml -Priority high
     Sleep 1
     Clear-Variable AutoMail -Scope Global
 }
