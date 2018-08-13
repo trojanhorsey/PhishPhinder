@@ -3,6 +3,8 @@ process to identify phishing messages that had slipped through the permiter, fin
 in the proxy, repeat the same steps for our on-prem 2007 exchange server, and then notify users. Thus, I created a PowerShell
 tool that does all of this for you.
 
+Be sure to modify the variables at the top of the script so that it will function properly within your environment.
+
 IMPORTANT: Exchange 2007 management shell must be installed on your machine before proceeding! If not, PhishPhinder will not 
 be able to search the on-prem environment. Please download and install the shell before proceeding. If your organization does
 not use Exchange 2007 (hopefully not), feel free to delete the function from PhishPhinder as needed.
